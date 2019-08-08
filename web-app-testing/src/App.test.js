@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { render } from '@testing-library/react';
-import '@testing-library/react/cleanup-after-each';
+import Dashboard from './components/Dashboard';
+import { render, cleanup, fireEvent } from '@testing-library/react';
+// import '@testing-library/react/cleanup-after-each';
+
+afterEach(cleanup);
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -18,3 +21,13 @@ describe('<App />', () => {
     app.getByText(/testing/i);
   });
 });
+
+describe('<Dashboard />', () => {
+  it('increments current counts', () => {
+    const { getByTestId } = render(<Dashboard />);
+    fireEvent.click(getByTestId('strike'));
+    fireEvent.click(getByTestId('ball'));
+    fireEvent.click(getByTestId('foul'));
+    fireEvent.click(getByTestId('hit'));
+  })
+})

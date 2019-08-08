@@ -60,10 +60,10 @@ class Dashboard extends Component {
                 <Display props={this.state} />
                 <div className='dashboard-container'>
                     <div className='buttons'>
-                        <button onClick={this.updateStrike}>Strike!</button>
-                        <button onClick={this.updateBall}>Ball!</button>
-                        <button onClick={this.updateFoul}>Foul!</button>
-                        <button onClick={this.updateHit}>Hit!</button>
+                        <button data-testid='strike' onClick={this.updateStrike}>Strike!</button>
+                        <button data-testid='ball' onClick={this.updateBall}>Ball!</button>
+                        <button data-testid='foul' onClick={this.updateFoul}>Foul!</button>
+                        <button data-testid='hit' onClick={this.updateHit}>Hit!</button>
                     </div>
                 </div>
             </div>
